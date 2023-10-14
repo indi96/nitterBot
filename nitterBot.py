@@ -1,8 +1,9 @@
 import telebot
+import html
 
 SEARCH_WORDS = ['twitter.com', 'x.com']
 
-bot = telebot.TeleBot('InsertTokenHere', parse_mode=None)
+bot = telebot.TeleBot('6612671822:AAGXHA2ITQpEBXH2lfRCpuwnE26VGAz4qL4', parse_mode=None)
 
 
 @bot.message_handler(commands=['help'])
@@ -23,9 +24,8 @@ def respond_to_specific_words(message):
     for word in SEARCH_WORDS:
         response = response.replace(word, 'nitter.net')
     bot.send_message(message.chat.id,
-                     '<b>Better with Nitter:</b>\n' + response,
+                     '<b>Better with Nitter:</b>\n' + html.escape(response),
                      disable_web_page_preview=False,
                      parse_mode='HTML')
-
 
 bot.infinity_polling()
