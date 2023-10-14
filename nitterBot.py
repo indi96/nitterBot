@@ -28,4 +28,17 @@ def respond_to_specific_words(message):
                      disable_web_page_preview=False,
                      parse_mode='HTML')
 
+
+@bot.edited_message_handler(func=lambda message: any(word in message.text for word in SEARCH_WORDS))
+def respond_to_edited_message(message):
+    response = message.text
+    for word in SEARCH_WORDS:
+        response = response.replace(word, 'nitter.net')
+
+    bot.send_message(message.chat.id,
+                     '<b>Better with Nitter:</b>\n' + html.escape(response),
+                     disable_web_page_preview=False,
+                     parse_mode='HTML')
+
+
 bot.infinity_polling()
