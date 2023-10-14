@@ -23,9 +23,9 @@ def respond_to_specific_words(message):
     for word in SEARCH_WORDS:
         response = response.replace(word, 'nitter.net')
     bot.send_message(message.chat.id,
-                     '*Better with Nitter:*\n' + response,
+                     '<b>Better with Nitter:</b>\n' + response,
                      disable_web_page_preview=False,
-                     parse_mode='markdown')
+                     parse_mode='HTML')
 
 
 bot.infinity_polling()
