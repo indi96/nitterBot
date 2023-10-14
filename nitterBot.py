@@ -3,7 +3,7 @@ import html
 
 SEARCH_WORDS = ['twitter.com', 'x.com']
 
-bot = telebot.TeleBot('6612671822:AAGXHA2ITQpEBXH2lfRCpuwnE26VGAz4qL4', parse_mode=None)
+bot = telebot.TeleBot('InsertTokenHere', parse_mode=None)
 
 
 @bot.message_handler(commands=['help'])
